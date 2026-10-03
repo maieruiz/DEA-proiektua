@@ -19,7 +19,7 @@ public class Film {
 	}
 
 	public void addAktore(Aktore newA) {
-		this.aktoreZerrenda.addAktore(newA);	
+		this.aktoreZerrenda.addAktorea(newA);	
 	}
 	
 	public AktoreZerrenda getFilmanAktoreak() {

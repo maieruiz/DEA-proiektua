@@ -7,18 +7,25 @@ public class Main {
 	
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
+		//ALGORITMO NAGUSIA
 		AktoreTaula aktoreZ = AktoreTaula.getAktoreTaula();
 		FilmTaula filmZ = FilmTaula.getFilmTaula();
-		readFiles(filmZ.getLista(), aktoreZ.getLista()); 
+		readFiles(filmZ.getLista(), aktoreZ.getLista());
+		//EXEKUZIO DENBORA
         long end = System.currentTimeMillis();
         double exTime = (double) ((end - start)/1000);
+        //PRINT-AK
         System.out.println("execution time: " + exTime + " seconds");
         System.out.println("AktoreZ  " + aktoreZ.size());
 		System.out.println("FilmZ  " + filmZ.size());
-		
+		//IDAZKETA
 		WriteFile writeFile = new WriteFile();
-		writeFile.writeFilmak("filmak.txt", filmZ.getLista());
-		writeFile.writeAktoreak("aktoreak.txt", aktoreZ.getLista());
+		//writeFile.writeFilmakT("filmak.txt", filmZ.getLista());
+		//writeFile.writeAktoreakT("aktoreak.txt", aktoreZ.getLista());
+		//SORT
+		AktoreZerrenda aktoreSorted = QuickSort.quickSortAlgorithm(aktoreZ.getLista());
+		writeFile.writeAktoreakZ("aktoreakSorted.txt", aktoreSorted);
+
 	}
 	
 	private static void readFiles(HashMap<String, Film> filmZ, HashMap<String, Aktore> aktoreZ) {

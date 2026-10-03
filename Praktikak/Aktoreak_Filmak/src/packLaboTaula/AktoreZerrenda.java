@@ -27,7 +27,11 @@ public class AktoreZerrenda {
 		return aktoreFound;
 	}
 
-	public void addAktore(Aktore pA) {
+	public String getIzena(int i) {
+		return this.lista.get(i).getIzena();
+	}
+	
+	public void addAktorea(Aktore pA) {
 		this.lista.add(pA);
 	}
 	
@@ -46,6 +50,14 @@ public class AktoreZerrenda {
 			f = itr.next();
 			f.printName();
 		}
+	}
+	
+	public void set(int i, Aktore a) {
+		this.lista.set(i, a);
+	}
+
+	public Aktore get(int i) {
+		return this.lista.get(i);
 	}
 	
 }
