@@ -11,11 +11,13 @@ public class Main {
 		AktoreTaula aktoreZ = AktoreTaula.getAktoreTaula();
 		FilmTaula filmZ = FilmTaula.getFilmTaula();
 		readFiles(filmZ.getLista(), aktoreZ.getLista());
-		//EXEKUZIO DENBORA
+		//EXEKUZIO DENBORA: ALGORITMO NAGUSIA
         long end = System.currentTimeMillis();
         double exTime = (double) ((end - start)/1000);
+        
         //PRINT-AK
-        System.out.println("execution time: " + exTime + " seconds");
+        System.out.println("===PRINT===\n");
+        System.out.println("execution time - algoritmo nagusia: " + exTime + " seconds");
         System.out.println("AktoreZ  " + aktoreZ.size());
 		System.out.println("FilmZ  " + filmZ.size());
 		System.out.println("");
@@ -23,10 +25,21 @@ public class Main {
 		WriteFile writeFile = new WriteFile();
 		writeFile.writeFilmakT("filmak.txt", filmZ.getLista());
 		writeFile.writeAktoreakT("aktoreak.txt", aktoreZ.getLista());
+		
 		//SORT
+		System.out.println("===SORT===\n");
+		start = System.currentTimeMillis();
 		AktoreZerrenda aktoreSorted = QuickSort.quickSortAlgorithm(aktoreZ.getLista());
 		writeFile.writeAktoreakZ("aktoreakSorted.txt", aktoreSorted);
+		end = System.currentTimeMillis();
+        exTime = (double) ((end - start)/100);
+        System.out.println("execution time - quick sort: " + exTime + " mili seconds");
+        System.out.println("");
+        
+		//PROBAK
+        System.out.println("===PROBAK===\n");
 		aktoreZ.printAktoreenFilmak("HarrisonFordQ81328");
+		System.out.println("");
 		aktoreZ.printAktoreenFilmak("HarryStylesQ3626966");
 	}
 	
