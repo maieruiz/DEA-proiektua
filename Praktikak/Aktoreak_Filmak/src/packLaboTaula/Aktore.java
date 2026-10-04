@@ -35,4 +35,15 @@ public class Aktore {
 	public String getId() {
 		return this.id;
 	}
+
+	public void printAktoreenFilmak() {
+		System.out.println(this.izena + ":");
+		this.filmZerrenda.printFilmsNames();
+	}
+
+	public boolean badagoFilma(String idFilm) {
+		if (this.filmZerrenda.filmFind(idFilm) != null)
+			return true;
+		return false;
+	}
 }

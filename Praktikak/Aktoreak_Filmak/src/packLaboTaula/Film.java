@@ -31,7 +31,7 @@ public class Film {
 	}
 
 	public void printName() {
-		System.out.println(this.izena);
+		System.out.print(this.izena);
 	}
 
 	public String getIzena() {
@@ -40,5 +40,15 @@ public class Film {
 	
 	public String getId() {
 		return this.id ;
+	}
+
+	public void printData() {
+		System.out.print(this.data);
+	}
+
+	public boolean badagoAktorea(String idAktore) {
+		if (this.aktoreZerrenda.aktoreFind(idAktore) != null)
+			return true;
+		return false;
 	}
 }

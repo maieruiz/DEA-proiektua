@@ -18,18 +18,20 @@ public class Main {
         System.out.println("execution time: " + exTime + " seconds");
         System.out.println("AktoreZ  " + aktoreZ.size());
 		System.out.println("FilmZ  " + filmZ.size());
+		System.out.println("");
 		//IDAZKETA
 		WriteFile writeFile = new WriteFile();
-		//writeFile.writeFilmakT("filmak.txt", filmZ.getLista());
-		//writeFile.writeAktoreakT("aktoreak.txt", aktoreZ.getLista());
+		writeFile.writeFilmakT("filmak.txt", filmZ.getLista());
+		writeFile.writeAktoreakT("aktoreak.txt", aktoreZ.getLista());
 		//SORT
 		AktoreZerrenda aktoreSorted = QuickSort.quickSortAlgorithm(aktoreZ.getLista());
 		writeFile.writeAktoreakZ("aktoreakSorted.txt", aktoreSorted);
-
+		aktoreZ.printAktoreenFilmak("HarrisonFordQ81328");
+		aktoreZ.printAktoreenFilmak("HarryStylesQ3626966");
 	}
 	
 	private static void readFiles(HashMap<String, Film> filmZ, HashMap<String, Aktore> aktoreZ) {
-		File directory = new File("C:/Users/maier/OneDrive - UPV EHU/2.maila/1.kuatri/datu-egiturak eta algoritmoak/Praktikak/Aktoreak_Filmak/src/packLaboTaula/movies-dir/");
+		File directory = new File("C:/Users/maier/Desktop/DEA-proiektua/Praktikak/Aktoreak_Filmak/src/packLaboTaula/movies-dir/");
 		File[] files = directory.listFiles();
 		ReadFile reader = new ReadFile();
 		for(File file : files) {

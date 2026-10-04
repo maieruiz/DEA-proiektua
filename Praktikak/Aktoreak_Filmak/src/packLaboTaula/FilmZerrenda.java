@@ -40,7 +40,11 @@ public class FilmZerrenda {
 		Iterator<Film> itr = this.getIteradorea();
 		while(itr.hasNext()) {
 			f = itr.next();
+			System.out.print("    ");
 			f.printName();
+			System.out.print("    ");
+			f.printData();
+			System.out.println();
 		}
 		
 	}

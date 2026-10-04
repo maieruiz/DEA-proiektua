@@ -42,4 +42,8 @@ public class AktoreTaula {
 		return lista;
 	}
 	
+	public void printAktoreenFilmak(String key) {
+		this.lista.get(key).printAktoreenFilmak();
+	}
+	
 }
