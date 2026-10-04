@@ -41,6 +41,8 @@ public class Main {
 		aktoreZ.printAktoreenFilmak("HarrisonFordQ81328");
 		System.out.println("");
 		aktoreZ.printAktoreenFilmak("HarryStylesQ3626966");
+		System.out.println("");
+		aktoreZ.printAktoreenFilmak("ZendayaQ189489");
 	}
 	
 	private static void readFiles(HashMap<String, Film> filmZ, HashMap<String, Aktore> aktoreZ) {
