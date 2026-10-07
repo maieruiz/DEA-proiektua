@@ -51,4 +51,9 @@ public class Film {
 			return true;
 		return false;
 	}
+	
+	public int getData() {
+		return this.data;
+	}
+	
 }
