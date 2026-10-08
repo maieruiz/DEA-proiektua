@@ -45,7 +45,7 @@ public class Main {
 	}
 	
 	private static void readFiles() {
-		File directory = new File("C:/Users/maier/Desktop/DEA-proiektua/Praktikak/Aktoreak_Filmak/src/packLaboTaula/movies-dir/");
+		File directory = new File("src/packLaboTaula/movies-dir/");
 		File[] files = directory.listFiles();
 		ReadFile reader = new ReadFile();
 		for(File file : files) {
