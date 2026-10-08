@@ -34,7 +34,5 @@
 \contentsline {subsection}{\numberline {5.11.6}FilmTaulaTest klasea}{28}{}%
 \contentsline {chapter}{\numberline {6}Konklusioak}{30}{}%
 \contentsline {section}{\numberline {6.1}Saiakerak eta emaitzak}{30}{}%
-\contentsline {section}{\numberline {6.2}ArrayListaren probak}{31}{}%
-\contentsline {section}{\numberline {6.3}Hash taularen probak}{31}{}%
-\contentsline {section}{\numberline {6.4}ArrayList eta Hash taularen konparaketa grafikoa}{31}{}%
-\contentsline {section}{\numberline {6.5}Quick Sort algoritmoaren exekuzio denbora milisegunduetan (ms)}{32}{}%
+\contentsline {section}{\numberline {6.2}ArrayList eta Hash taularen konparaketa grafikoa}{31}{}%
+\contentsline {section}{\numberline {6.3}Quick Sort algoritmoaren exekuzio denbora milisegunduetan (ms)}{31}{}%
