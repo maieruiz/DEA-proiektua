@@ -18,8 +18,7 @@ public class FilmTaula {
 	
 	public boolean conteinsFilm(String pKey)
 	{
-		if(lista.containsKey(pKey)) return true;
-		else return false;
+		return lista.containsKey(pKey);
 	}
 	
 	public Film getFilm(String pKey) {
@@ -33,8 +32,8 @@ public class FilmTaula {
 	public int size() {
 		return this.lista.size();
 	}
-
-	public HashMap<String, Film> getLista() {
-		return lista;
+	
+	public HashMap<String, Film> getLista(){
+		return this.lista;
 	}
 }

@@ -18,7 +18,7 @@ class FilmTaulaTest {
  
 	@Test
 	void testSize() {
-		assertEquals(FilmTaula.getFilmTaula().size(),0);
+		assertEquals(FilmTaula.getFilmTaula(),0);
 	}
 	
 	@Test

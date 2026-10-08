@@ -1,7 +1,6 @@
 package packLaboTaula;
 
 import java.io.File;
-import java.util.HashMap;
 
 public class Main {
 	
@@ -10,11 +9,11 @@ public class Main {
 		//ALGORITMO NAGUSIA
 		AktoreTaula aktoreZ = AktoreTaula.getAktoreTaula();
 		FilmTaula filmZ = FilmTaula.getFilmTaula();
-		readFiles(filmZ.getLista(), aktoreZ.getLista());
+		readFiles();
 		//EXEKUZIO DENBORA: ALGORITMO NAGUSIA
         long end = System.currentTimeMillis();
         double exTime = (double) ((end - start)/1000);
-        
+
         //PRINT-AK
         System.out.println("===PRINT===\n");
         System.out.println("execution time - algoritmo nagusia: " + exTime + " seconds");
@@ -23,8 +22,8 @@ public class Main {
 		System.out.println("");
 		//IDAZKETA
 		WriteFile writeFile = new WriteFile();
-		writeFile.writeFilmakT("filmak.txt", filmZ.getLista());
-		writeFile.writeAktoreakT("aktoreak.txt", aktoreZ.getLista());
+		writeFile.writeFilmakT("filmak.txt", FilmTaula.getFilmTaula());
+		writeFile.writeAktoreakT("aktoreak.txt", AktoreTaula.getAktoreTaula());
 		
 		//SORT
 		System.out.println("===SORT===\n");
@@ -45,13 +44,13 @@ public class Main {
 		aktoreZ.printAktoreenFilmak("ZendayaQ189489");
 	}
 	
-	private static void readFiles(HashMap<String, Film> filmZ, HashMap<String, Aktore> aktoreZ) {
+	private static void readFiles() {
 		File directory = new File("C:/Users/maier/Desktop/DEA-proiektua/Praktikak/Aktoreak_Filmak/src/packLaboTaula/movies-dir/");
 		File[] files = directory.listFiles();
 		ReadFile reader = new ReadFile();
 		for(File file : files) {
 			if (file.isFile() && file.getName().endsWith(".txt")) 
-				reader.readFile(file.getAbsolutePath(), file.getName(), filmZ, aktoreZ);
+				reader.readFile(file.getAbsolutePath(), file.getName());
 		}
 	}
 }

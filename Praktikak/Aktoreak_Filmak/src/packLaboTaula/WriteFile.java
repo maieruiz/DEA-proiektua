@@ -2,14 +2,13 @@ package packLaboTaula;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
 
 public class WriteFile {
-	public void writeFilmakT(String fIzena, HashMap<String, Film> taula) {
+	public void writeFilmakT(String fIzena, FilmTaula filmTaula) {
 		try {
 			PrintWriter writer = new PrintWriter(fIzena, "UTF-8");
-			for (String key : taula.keySet())
-				writer.printf("%-60s  %s%n", taula.get(key).getIzena(), taula.get(key).getId());
+			for (Film film : filmTaula.getLista().values())
+				writer.printf("%-60s  %s%n", film.getIzena(), film.getId());
 			writer.close();
 		}
 		catch (IOException e) {
@@ -17,11 +16,11 @@ public class WriteFile {
 		}
 	}
 	
-	public void writeAktoreakT(String fIzena, HashMap<String, Aktore> taula) {
+	public void writeAktoreakT(String fIzena, AktoreTaula aktoreTaula) {
 		try {
 			PrintWriter writer = new PrintWriter(fIzena, "UTF-8");
-			for (String key : taula.keySet())
-				writer.printf("%-60s  %s%n", taula.get(key).getIzena(), taula.get(key).getId());
+			for (Aktore aktore : aktoreTaula.getLista().values())
+				writer.printf("%-60s  %s%n", aktore.getIzena(), aktore.getId());
 			writer.close();
 		}
 		catch (IOException e) {

@@ -2,41 +2,42 @@ package packLaboTaula;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class ReadFile {
-	public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  HashMap<String, Aktore> aktoreZ) {
+	public void readFile(String izena, String pData) {
 		  try {
 		    Scanner sarrera = new Scanner(new FileReader(izena));
-		    String lerroa;
+		    int data = extractData(pData);
 		    while (sarrera.hasNext()) {
-		      lerroa = sarrera.nextLine();
-		      String[] datuak = lerroa.split("\\s+###\\s+");
-		      int data = extractData(pData);
-		      if (datuak.length == 4) {
-		    	  datuak[0] = extractId(datuak[0]);
-			      datuak[2] = extractId(datuak[2]);
-			      String aktoreKey = datuak[1].replace(" ", "").concat(datuak[0]);
-			      String filmKey = datuak[3].replace(" ", "").concat(datuak[2]);
-			      if (!(datuak[0].equals(datuak[1]) || datuak[2].equals(datuak[3])))
-			      {
-			    	  if(!aktoreZ.containsKey(aktoreKey)) {
-			    		  Aktore newA = new Aktore(datuak[0], datuak[1]);
-			    		  aktoreZ.put(aktoreKey, newA);
-			    	  }  
-			    	  if(!filmZ.containsKey(filmKey)) {
-			    		  Film newF = new Film(datuak[2], datuak[3], data);
-			    		  filmZ.put(filmKey, newF);
-			    	  }
-			    	  if(!aktoreZ.get(aktoreKey).badagoFilma(datuak[2]))
-			    		  aktoreZ.get(aktoreKey).addFilm(filmZ.get(filmKey));
-			    	  if(!filmZ.get(filmKey).badagoAktorea(datuak[0]))
-			    		  filmZ.get(filmKey).addAktore(aktoreZ.get(aktoreKey));
-			      }
-		      }
-		    }
-		    sarrera.close();
+		    	String[] datuak = sarrera.nextLine().split("\\s+###\\s+");
+			    if (datuak.length != 4) continue;
+	    	    String aktoreId = extractId(datuak[0]);
+	    	    String aktoreIzena = datuak[1];
+	    	    String filmId = extractId(datuak[2]);
+	    	    String filmIzena = datuak[3];
+		        
+		        if (aktoreId.equals(aktoreIzena) || filmId.equals(filmIzena)) continue;
+		        
+		        String aktoreKey = aktoreIzena.replace(" ", "").concat(aktoreId);
+		        String filmKey = filmIzena.replace(" ", "").concat(filmId);
+		        
+		        Aktore aktore = AktoreTaula.getAktoreTaula().getAktore(aktoreKey);
+		        if (aktore == null) {
+		        	 aktore = new Aktore(aktoreId, aktoreIzena);
+			    	 AktoreTaula.getAktoreTaula().addAktore(aktoreKey, aktore);
+		        }
+			    
+		        Film film = FilmTaula.getFilmTaula().getFilm(filmKey);
+		        if (film == null) {
+		        	 film = new Film(filmId, filmIzena, data);
+			    	 FilmTaula.getFilmTaula().addFilm(filmKey, film);
+		        }
+			    
+		        if(!aktore.badagoFilma(filmId)) aktore.addFilm(film);
+			    if(!film.badagoAktorea(aktoreId)) film.addAktore(aktore);   
+		  }
+		  sarrera.close();
 		  } // try 
 		  catch (IOException e) {
 		    e.printStackTrace();
