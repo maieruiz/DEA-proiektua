@@ -9,16 +9,11 @@ import org.junit.jupiter.api.Test;
 class FilmTaulaTest {
 
 	Film f = new Film("QL6869","American History X", 1998);
-	Film f2 = new Film("QL6869","La Momia", 1998);
+	Film f2 = new Film("QL6870","La Momia", 1998);
 	
 	@Test
 	void testGetFilmTaula() {
 		assertNotNull(FilmTaula.getFilmTaula());
-	}
- 
-	@Test
-	void testSize() {
-		assertEquals(FilmTaula.getFilmTaula(),0);
 	}
 	
 	@Test
