@@ -16,7 +16,7 @@
 \renewcommand{\contentsname}{Contenido}
 % Title Page
 \title{Praktika 1: Aktoreak eta filmak kudeatzeko aplikazioa}
-\author{Maialen Ruiz Gallo\\Ibon Madariaga Beldarrain\\Endika ??? ???\\Marco ??? ???}
+\author{Maialen Ruiz Gallo\\Ibon Madariaga Beldarrain\\Endika Perez Larrea\\Marco Alonso Fernandez}
 
 
 \begin{document}
@@ -58,10 +58,6 @@ Hasieran, \textit{ArrayList}-ak erabili ziren soilik, baina algoritmoa ez zen ha
 		\begin{itemize}
 			\item \textbf{Aurrebaldintza}: Command-Line Argument-ko argumentuak hartzen ditu parametro gisa, baina ez dira erabiltzen. Eclipsek defektuz sortutako metodo izenburua da.
 			\item \textbf{Postbaldintza}: Ez du ezer itzultzen
-		\end{itemize}
-	\subsection*{Kasu probak}
-		\begin{itemize}
-			\item 
 		\end{itemize}
 	\subsection*{Deskribapena}
 		Metodo hau nagusia da. Bertan, bi hash taula lortzen dira. Horretaz aparte, Quick Sort algoritmoa bertatik deitzen da eta exekuzio-denborak kontrolatu egiten dira.
@@ -108,10 +104,6 @@ Hasieran, \textit{ArrayList}-ak erabili ziren soilik, baina algoritmoa ez zen ha
 			\item \textbf{Aurrebaldintza}: Parametro gisa, aktore guztiak gordeta dauden (edo gordeko diren lekua) taula eta film guztiak gordeta daude (edo gordeko diren lekua) taula jasotzen ditu.
 			\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
 		\end{itemize}
-	\subsection*{Kasu probak}
-		\begin{itemize}
-			\item 
-		\end{itemize}
 	\subsection*{Deskribapena}
 		Metodo honek .txt artxibo guztiak array baten barnean sartzen ditu eta artxiboz artxibo irakurtzen ditu.
 	\subsection*{Kostua}
@@ -144,10 +136,6 @@ Hasieran, \textit{ArrayList}-ak erabili ziren soilik, baina algoritmoa ez zen ha
 		\begin{itemize}
 			\item \textbf{Aurrebaldintza}: Artxiboaren "Path"-a, izena eta aktore eta filmen taulak hartzen ditu parametro gisa.
 			\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
-		\end{itemize}
-	\subsection*{Kasu probak}
-		\begin{itemize}
-			\item 
 		\end{itemize}
 	\subsection*{Deskribapena}
 		Metodo hau Main klaseko readFiles metodotik deitzen da iterazio bakoitzean. Bertan, .txt bakoitzaren irakurketa bera burutzen da. Artxiboa lerroz lerro irakurri egiten da, bakoitzetik beharrezko informazioa lortuz eta dagokion lekuak sailkatuz.
@@ -208,10 +196,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 				\item \textbf{Aurrebaldintza}: Metodoak aktoreen hash taula hartzen du parametro gisa.
 				\item \textbf{Postbaldintza}: Metodoak ArrayList bat itzultzen du. Bertan, taulako aktore guztiak agertzen dira, ordenatuta.
 			\end{itemize}
-		\subsubsection*{Kasu probak}
-			\begin{itemize}
-				\item 
-			\end{itemize}
 		\subsubsection*{Deskribapena}
 			Metodo honek algoritmoaren hasieraketak egiten ditu, hala nola, zerrenda berri bat sortu, algoritmoa burutzen duen metodoari deitu eta zerrenda ordenatua itzuli.
 		\subsubsection*{Kostua}
@@ -241,10 +225,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 				\item \textbf{Aurrebaldintza}: Metodoak aktore-taula eta bi zenbaki oso jasotzen ditu (hasierako eta bukaerako posizioak).
 				\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
 			\end{itemize}
-		\subsubsection*{Kasu probak}
-			\begin{itemize}
-				\item 
-			\end{itemize}
 		\subsubsection*{Deskribapena}
 			Metodo honek quick sort algoritmoa bera burutzen du, dei errekurtsiboekin.
 		\subsubsection*{Kostua}
@@ -269,10 +249,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 			\begin{itemize}
 				\item \textbf{Aurrebaldintza}: Metodoak aktore-taula eta bi zenbaki oso jasotzen ditu (hasierako eta bukaerako posizioak).
 				\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
-			\end{itemize}
-		\subsubsection*{Kasu probak}
-			\begin{itemize}
-				\item 
 			\end{itemize}
 		\subsubsection*{Deskribapena}
 			Metodo honek Quick Sort algoritmoak behin eta berriz egiten duen zatiketa burutzen du.
@@ -313,10 +289,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 				\item \textbf{Aurrebaldintza}: Metodoak aktore-taula eta bi zenbaki oso jasotzen ditu (trukatu nahi diren bi elementuen posizioak).
 				\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
 			\end{itemize}
-		\subsubsection*{Kasu probak}
-			\begin{itemize}
-				\item 
-			\end{itemize}
 		\subsubsection*{Deskribapena}
 			Metodo honek bi balioren aldaketa burutzen du, aldagai temporal baten laguntzarekin.
 		\subsubsection*{Kostua}
@@ -337,7 +309,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
     package packLaboTaula;
     
     import java.io.File;
-    import java.util.HashMap;
     
     public class Main {
     	
@@ -346,7 +317,7 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
     		//ALGORITMO NAGUSIA
     		AktoreTaula aktoreZ = AktoreTaula.getAktoreTaula();
     		FilmTaula filmZ = FilmTaula.getFilmTaula();
-    		readFiles(filmZ.getLista(), aktoreZ.getLista());
+    		readFiles();
     		//EXEKUZIO DENBORA: ALGORITMO NAGUSIA
     		long end = System.currentTimeMillis();
     		double exTime = (double) ((end - start)/1000);
@@ -359,8 +330,8 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
     		System.out.println("");
     		//IDAZKETA
     		WriteFile writeFile = new WriteFile();
-    		writeFile.writeFilmakT("filmak.txt", filmZ.getLista());
-    		writeFile.writeAktoreakT("aktoreak.txt", aktoreZ.getLista());
+    		writeFile.writeFilmakT("filmak.txt", FilmTaula.getFilmTaula());
+    		writeFile.writeAktoreakT("aktoreak.txt", AktoreTaula.getAktoreTaula());
     		
     		//SORT
     		System.out.println("===SORT===\n");
@@ -381,17 +352,15 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
     		aktoreZ.printAktoreenFilmak("ZendayaQ189489");
     	}
     	
-    	private static void readFiles(HashMap<String, Film> filmZ, HashMap<String, Aktore> aktoreZ) {
+    	private static void readFiles() {
     		File directory = new File("C:/Users/maier/Desktop/DEA-proiektua/Praktikak/Aktoreak_Filmak/src/packLaboTaula/movies-dir/");
     		File[] files = directory.listFiles();
     		ReadFile reader = new ReadFile();
     		for(File file : files) {
     			if (file.isFile() && file.getName().endsWith(".txt")) 
-    			reader.readFile(file.getAbsolutePath(), file.getName(), filmZ, aktoreZ);
+    			reader.readFile(file.getAbsolutePath(), file.getName());
     		}
     	}
-    }
-    
     }
 \end{lstlisting}
 
@@ -401,39 +370,40 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 	
 	import java.io.FileReader;
 	import java.io.IOException;
-	import java.util.HashMap;
 	import java.util.Scanner;
 	
 	public class ReadFile {
-		public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  HashMap<String, Aktore> aktoreZ) {
+		public void readFile(String izena, String pData) {
 			try {
 				Scanner sarrera = new Scanner(new FileReader(izena));
-				String lerroa;
+				int data = extractData(pData);
 				while (sarrera.hasNext()) {
-					lerroa = sarrera.nextLine();
-					String[] datuak = lerroa.split("\\s+###\\s+");
-					int data = extractData(pData);
-					if (datuak.length == 4) {
-						datuak[0] = extractId(datuak[0]);
-						datuak[2] = extractId(datuak[2]);
-						String aktoreKey = datuak[1].replace(" ", "").concat(datuak[0]);
-						String filmKey = datuak[3].replace(" ", "").concat(datuak[2]);
-						if (!(datuak[0].equals(datuak[1]) || datuak[2].equals(datuak[3])))
-						{
-							if(!aktoreZ.containsKey(aktoreKey)) {
-								Aktore newA = new Aktore(datuak[0], datuak[1]);
-								aktoreZ.put(aktoreKey, newA);
-							}  
-							if(!filmZ.containsKey(filmKey)) {
-								Film newF = new Film(datuak[2], datuak[3], data);
-								filmZ.put(filmKey, newF);
-							}
-							if(!aktoreZ.get(aktoreKey).badagoFilma(datuak[2]))
-							aktoreZ.get(aktoreKey).addFilm(filmZ.get(filmKey));
-							if(!filmZ.get(filmKey).badagoAktorea(datuak[0]))
-							filmZ.get(filmKey).addAktore(aktoreZ.get(aktoreKey));
-						}
+					String[] datuak = sarrera.nextLine().split("\\s+###\\s+");
+					if (datuak.length != 4) continue;
+					String aktoreId = extractId(datuak[0]);
+					String aktoreIzena = datuak[1];
+					String filmId = extractId(datuak[2]);
+					String filmIzena = datuak[3];
+					
+					if (aktoreId.equals(aktoreIzena) || filmId.equals(filmIzena)) continue;
+					
+					String aktoreKey = aktoreIzena.replace(" ", "").concat(aktoreId);
+					String filmKey = filmIzena.replace(" ", "").concat(filmId);
+					
+					Aktore aktore = AktoreTaula.getAktoreTaula().getAktore(aktoreKey);
+					if (aktore == null) {
+						aktore = new Aktore(aktoreId, aktoreIzena);
+						AktoreTaula.getAktoreTaula().addAktore(aktoreKey, aktore);
 					}
+					
+					Film film = FilmTaula.getFilmTaula().getFilm(filmKey);
+					if (film == null) {
+						film = new Film(filmId, filmIzena, data);
+						FilmTaula.getFilmTaula().addFilm(filmKey, film);
+					}
+					
+					if(!aktore.badagoFilma(filmId)) aktore.addFilm(film);
+					if(!film.badagoAktorea(aktoreId)) film.addAktore(aktore);   
 				}
 				sarrera.close();
 			} // try 
@@ -455,7 +425,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 			return data;
 		}
 	}
-	
 \end{lstlisting}
 
 \section{WriteFile klasea}
@@ -464,14 +433,13 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 	
 	import java.io.IOException;
 	import java.io.PrintWriter;
-	import java.util.HashMap;
 	
 	public class WriteFile {
-		public void writeFilmakT(String fIzena, HashMap<String, Film> taula) {
+		public void writeFilmakT(String fIzena, FilmTaula filmTaula) {
 			try {
 				PrintWriter writer = new PrintWriter(fIzena, "UTF-8");
-				for (String key : taula.keySet())
-				writer.printf("%-60s  %s%n", taula.get(key).getIzena(), taula.get(key).getId());
+				for (Film film : filmTaula.getLista().values())
+				writer.printf("%-60s  %s%n", film.getIzena(), film.getId());
 				writer.close();
 			}
 			catch (IOException e) {
@@ -479,11 +447,11 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 			}
 		}
 		
-		public void writeAktoreakT(String fIzena, HashMap<String, Aktore> taula) {
+		public void writeAktoreakT(String fIzena, AktoreTaula aktoreTaula) {
 			try {
 				PrintWriter writer = new PrintWriter(fIzena, "UTF-8");
-				for (String key : taula.keySet())
-				writer.printf("%-60s  %s%n", taula.get(key).getIzena(), taula.get(key).getId());
+				for (Aktore aktore : aktoreTaula.getLista().values())
+				writer.printf("%-60s  %s%n", aktore.getIzena(), aktore.getId());
 				writer.close();
 			}
 			catch (IOException e) {
@@ -503,7 +471,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 			}
 		}
 	}
-	
 \end{lstlisting}
 
 \section{QuickSort klasea}
@@ -557,11 +524,8 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 			Aktore tempAktore = aktoreZ.get(one);
 			aktoreZ.set(one, aktoreZ.get(two));
 			aktoreZ.set(two, tempAktore);
-		}
-		
-		
+		}	
 	}
-	
 \end{lstlisting}
 
 \section{FilmZerrenda klasea}
@@ -617,7 +581,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 			
 		}
 	}
-	
 \end{lstlisting}
 
 \section{FilmTaula klasea}
@@ -642,8 +605,7 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 		
 		public boolean conteinsFilm(String pKey)
 		{
-			if(lista.containsKey(pKey)) return true;
-			else return false;
+			return lista.containsKey(pKey);
 		}
 		
 		public Film getFilm(String pKey) {
@@ -658,11 +620,10 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 			return this.lista.size();
 		}
 		
-		public HashMap<String, Film> getLista() {
-			return lista;
+		public HashMap<String, Film> getLista(){
+			return this.lista;
 		}
 	}
-	
 \end{lstlisting}
 
 \section{Film klasea}
@@ -720,8 +681,12 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 			return true;
 			return false;
 		}
+		
+		public int getData() {
+			return this.data;
+		}
+		
 	}
-	
 \end{lstlisting}
 
 \section{AktoreZerrenda klasea}
@@ -789,7 +754,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 		}
 		
 	}
-	
 \end{lstlisting}
 
 \section{AktoreTaula klasea}
@@ -843,7 +807,6 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 		}
 		
 	}
-	
 \end{lstlisting}
 \section{Aktore klasea}
 \begin{lstlisting}[language=java]
@@ -896,7 +859,290 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 			return false;
 		}
 	}
+\end{lstlisting}
+
+\section{JUNIT klaseak}
+	\subsection{AktoreTest klasea}
+\begin{lstlisting}[language=java]
+	package packLaboTaula;
 	
+	import static org.junit.jupiter.api.Assertions.*;
+	import org.junit.jupiter.api.Test;
+	
+	class AktoreTest {
+		
+		Aktore a = new Aktore("QR6767", "Ramon");
+		Aktore b = new Aktore("QR6767", "Ignacio");
+		Film f = new Film("QT3333","Frankenstein",1967);
+		
+		//Hacer esto pero en varios @Test, importante
+		@Test
+		void testGetIzena() {
+			assertEquals("Ramon", a.getIzena());	
+		}
+		
+		@Test
+		void testGetId() {
+			assertEquals("QR6767", a.getId());
+		}
+		
+		@Test
+		void getAktoreanFilmakNotNull() {
+			assertNotNull(a.getAktoreanFilmak());		
+		}
+		
+		@Test
+		void testSameId() {		
+			assertTrue(a.sameId(b.getId()));
+		}
+		
+		@Test
+		void testAddFilm() {
+			a.addFilm(f);
+			assertEquals(a.getAktoreanFilmak().size(),1);
+		}
+		
+		@Test
+		void testBadagoFilma() {	
+			a.addFilm(f);
+			assertTrue(a.badagoFilma(f.getId()));
+		}
+	}
+\end{lstlisting}
+
+	\subsection{AktoreZerrendaTest klasea}
+\begin{lstlisting}[language=java]
+	package packLaboTaula;
+	
+	import static org.junit.jupiter.api.Assertions.*;
+	
+	import org.junit.jupiter.api.Test;
+	
+	class AktoreZerrendaTest {
+		
+		AktoreZerrenda az = new AktoreZerrenda();
+		Aktore a = new Aktore("QR6767","Ramon");
+		Aktore a2 = new Aktore("QR6869","Andeka");
+		
+		@Test
+		void testAddAktore() {
+			az.addAktorea(a);
+			assertEquals(az.size(),1);
+		}
+		
+		@Test
+		void testRemoveAktore() {
+			az.addAktorea(a);
+			az.removeAktore(a);
+			assertEquals(az.size(),0);
+		}
+		
+		@Test
+		void testAktoreFind() {
+			az.addAktorea(a);
+			assertEquals(az.aktoreFind(a.getId()),a);
+		}
+		
+		@Test
+		void testGet() {
+			az.addAktorea(a);
+			assertEquals(az.get(0),a);
+		}
+		
+		@Test
+		void testSet() {
+			az.addAktorea(a);
+			az.addAktorea(a2);
+			az.set(1, a);
+			assertEquals(az.get(1),a);
+		}
+		
+	}
+\end{lstlisting}
+
+	\subsection{AktoreTaulaTest klasea}
+\begin{lstlisting}[language=java]
+	package packLaboTaula;
+	
+	import static org.junit.jupiter.api.Assertions.*;
+	
+	import java.util.HashMap;
+	
+	import org.junit.jupiter.api.Test;
+	
+	class AktoreTaulaTest {
+		
+		Aktore a = new Aktore("QR6767","Ramon");
+		
+		@Test
+		void testGetAktoreTaula() {
+			assertNotNull(AktoreTaula.getAktoreTaula());
+		}
+		
+		@Test
+		void testSize() {
+			assertEquals(0, AktoreTaula.getAktoreTaula().size());
+		}
+		
+		@Test
+		void testAddAktore() {
+			AktoreTaula.getAktoreTaula().addAktore(a.getId(), a);
+			assertEquals(1, AktoreTaula.getAktoreTaula().size());
+		}
+		
+		@Test
+		void testRemoveAktore() {
+			AktoreTaula.getAktoreTaula().addAktore(a.getId(), a);
+			AktoreTaula.getAktoreTaula().removeAktore(a.getId());
+			assertEquals(0, AktoreTaula.getAktoreTaula().size());
+		}
+		
+		@Test
+		void testConteinsAktore() {
+			AktoreTaula.getAktoreTaula().addAktore(a.getId(), a);
+			assertTrue(AktoreTaula.getAktoreTaula().conteinsAktore(a.getId()));
+		}
+		
+		@Test
+		void testGetLista() {
+			HashMap<String, Aktore> lista = AktoreTaula.getAktoreTaula().getLista();
+			assertNotNull(lista);
+		}
+		
+	}
+\end{lstlisting}
+
+	\subsection{FilmTest klasea}
+\begin{lstlisting}[language=java]
+	package packLaboTaula;
+	
+	import static org.junit.jupiter.api.Assertions.*;
+	import org.junit.jupiter.api.Test;
+	
+	class FilmTest {
+		
+		Film f = new Film("QL6869","La Momia", 1998);
+		Film f2 = new Film("QL6869","American History X", 1998);
+		Aktore a = new Aktore("QR6767","Ramon");
+		
+		//Hacer esto pero en varios @Test, importante para saber donde es el fallo en caso de haber uno
+		
+		@Test
+		void testGetIzena() {
+			assertEquals("La Momia", f.getIzena());
+		}
+		
+		@Test
+		void testGetId() {
+			assertEquals("QL6869", f.getId());		
+		}
+		
+		@Test
+		void testGetFilmanAktoreakNotNull() {
+			assertNotNull(f.getFilmanAktoreak());		
+		}
+		
+		@Test
+		void testSameId() {
+			assertTrue(f.sameId(f2.getId()));		
+		}
+		
+		@Test
+		void testAddAktore() {
+			f.addAktore(a);
+			assertEquals(f.getFilmanAktoreak().size(),1);
+		}
+		
+		@Test
+		void testBadagoAktorea() {
+			f.addAktore(a);		
+			assertTrue(f.badagoAktorea(a.getId()));
+		}
+		
+		@Test
+		void testGetData() {
+			assertEquals(f.getData(), 1998);		
+		}
+	}
+\end{lstlisting}
+
+	\subsection{FilmZerrendaTest klasea}
+\begin{lstlisting}[language=java]
+	package packLaboTaula;
+	
+	import static org.junit.jupiter.api.Assertions.*;
+	
+	import org.junit.jupiter.api.Test;
+	
+	class FilmZerrendaTest {
+		
+		FilmZerrenda fz = new FilmZerrenda();
+		Film f = new Film("QL6869","American History X", 1998);
+		
+		@Test
+		void testSize() {
+			assertEquals(fz.size(),0);
+		}
+		
+		@Test
+		void testAddFilm() {
+			fz.addFilm(f);
+			assertEquals(fz.size(),1);
+		}
+		
+		@Test
+		void testFilmFind() {
+			fz.addFilm(f);
+			assertEquals(fz.filmFind(f.getId()),f);
+		}
+	}
+\end{lstlisting}
+
+	\subsection{FilmTaulaTest klasea}
+\begin{lstlisting}[language=java]
+	package packLaboTaula;
+	
+	import static org.junit.jupiter.api.Assertions.*;
+	
+	import java.util.HashMap;
+	
+	import org.junit.jupiter.api.Test;
+	
+	class FilmTaulaTest {
+		
+		Film f = new Film("QL6869","American History X", 1998);
+		Film f2 = new Film("QL6870","La Momia", 1998);
+		
+		@Test
+		void testGetFilmTaula() {
+			assertNotNull(FilmTaula.getFilmTaula());
+		}
+		
+		@Test
+		void testAddFilm() {
+			FilmTaula.getFilmTaula().addFilm(f.getId(), f);
+			FilmTaula.getFilmTaula().addFilm(f2.getId(), f2);
+			assertEquals(FilmTaula.getFilmTaula().size(),2);
+		}
+		
+		@Test
+		void testGetFilm() {
+			FilmTaula.getFilmTaula().addFilm(f.getId(), f);
+			assertEquals(FilmTaula.getFilmTaula().getFilm(f.getId()),f);
+		}
+		
+		@Test
+		void testConteinsFilm() {
+			FilmTaula.getFilmTaula().addFilm(f.getId(), f);
+			assertTrue(FilmTaula.getFilmTaula().conteinsFilm(f.getId()));
+		}
+		
+		@Test
+		void testGetLista() {
+			HashMap<String, Film> lista = FilmTaula.getFilmTaula().getLista();
+			assertNotNull(lista);
+		}	
+	}
 \end{lstlisting}
 
 

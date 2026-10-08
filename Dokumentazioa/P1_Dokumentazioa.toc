@@ -1,33 +1,40 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Sarrera: Arazoa}{2}{}%
-\contentsline {chapter}{\numberline {2}Klaseen diseinua}{3}{}%
-\contentsline {chapter}{\numberline {3}Datu-egitura nagusien deskribapena}{4}{}%
-\contentsline {section}{\numberline {3.1}\textit {ArrayList}}{4}{}%
-\contentsline {section}{\numberline {3.2}\textit {Hash} taula}{4}{}%
-\contentsline {section}{\numberline {3.3}Konparaketa}{4}{}%
-\contentsline {chapter}{\numberline {4}Metodo nagusien diseinua eta implementazioa}{5}{}%
-\contentsline {section}{\numberline {4.1}main metodoa}{5}{}%
-\contentsline {section}{\numberline {4.2}readFiles metodoa}{6}{}%
-\contentsline {section}{\numberline {4.3}readFile metodoa}{7}{}%
-\contentsline {section}{\numberline {4.4}Quick Sort algoritmoa}{8}{}%
-\contentsline {subsection}{\numberline {4.4.1}quickSortAlgorithm metodoa}{8}{}%
-\contentsline {subsection}{\numberline {4.4.2}quickSort metodoa}{9}{}%
-\contentsline {subsection}{\numberline {4.4.3}divisor metodoa}{10}{}%
+\contentsline {chapter}{\numberline {1}Sarrera: Arazoa}{3}{}%
+\contentsline {chapter}{\numberline {2}Klaseen diseinua}{4}{}%
+\contentsline {chapter}{\numberline {3}Datu-egitura nagusien deskribapena}{5}{}%
+\contentsline {section}{\numberline {3.1}\textit {ArrayList}}{5}{}%
+\contentsline {section}{\numberline {3.2}\textit {Hash} taula}{5}{}%
+\contentsline {section}{\numberline {3.3}Konparaketa}{5}{}%
+\contentsline {chapter}{\numberline {4}Metodo nagusien diseinua eta implementazioa}{6}{}%
+\contentsline {section}{\numberline {4.1}main metodoa}{6}{}%
+\contentsline {section}{\numberline {4.2}readFiles metodoa}{7}{}%
+\contentsline {section}{\numberline {4.3}readFile metodoa}{8}{}%
+\contentsline {section}{\numberline {4.4}Quick Sort algoritmoa}{9}{}%
+\contentsline {subsection}{\numberline {4.4.1}quickSortAlgorithm metodoa}{9}{}%
+\contentsline {subsection}{\numberline {4.4.2}quickSort metodoa}{10}{}%
+\contentsline {subsection}{\numberline {4.4.3}divisor metodoa}{11}{}%
 \contentsline {subsection}{\numberline {4.4.4}swap metodoa}{11}{}%
-\contentsline {chapter}{\numberline {5}Kodigoa}{12}{}%
-\contentsline {section}{\numberline {5.1}Main klasea}{12}{}%
-\contentsline {section}{\numberline {5.2}ReadFile klasea}{13}{}%
-\contentsline {section}{\numberline {5.3}WriteFile klasea}{15}{}%
-\contentsline {section}{\numberline {5.4}QuickSort klasea}{16}{}%
-\contentsline {section}{\numberline {5.5}FilmZerrenda klasea}{17}{}%
-\contentsline {section}{\numberline {5.6}FilmTaula klasea}{18}{}%
-\contentsline {section}{\numberline {5.7}Film klasea}{19}{}%
-\contentsline {section}{\numberline {5.8}AktoreZerrenda klasea}{20}{}%
-\contentsline {section}{\numberline {5.9}AktoreTaula klasea}{21}{}%
-\contentsline {section}{\numberline {5.10}Aktore klasea}{22}{}%
-\contentsline {chapter}{\numberline {6}Konklusioak}{24}{}%
-\contentsline {section}{\numberline {6.1}Saiakerak eta emaitzak}{24}{}%
-\contentsline {section}{\numberline {6.2}ArrayListaren probak}{25}{}%
-\contentsline {section}{\numberline {6.3}Hash taularen probak}{25}{}%
-\contentsline {section}{\numberline {6.4}ArrayList eta Hash taularen konparaketa grafikoa}{25}{}%
-\contentsline {section}{\numberline {6.5}Quick Sort algoritmoaren exekuzio denbora milisegunduetan (ms)}{26}{}%
+\contentsline {chapter}{\numberline {5}Kodigoa}{13}{}%
+\contentsline {section}{\numberline {5.1}Main klasea}{13}{}%
+\contentsline {section}{\numberline {5.2}ReadFile klasea}{14}{}%
+\contentsline {section}{\numberline {5.3}WriteFile klasea}{16}{}%
+\contentsline {section}{\numberline {5.4}QuickSort klasea}{17}{}%
+\contentsline {section}{\numberline {5.5}FilmZerrenda klasea}{18}{}%
+\contentsline {section}{\numberline {5.6}FilmTaula klasea}{19}{}%
+\contentsline {section}{\numberline {5.7}Film klasea}{20}{}%
+\contentsline {section}{\numberline {5.8}AktoreZerrenda klasea}{21}{}%
+\contentsline {section}{\numberline {5.9}AktoreTaula klasea}{22}{}%
+\contentsline {section}{\numberline {5.10}Aktore klasea}{23}{}%
+\contentsline {section}{\numberline {5.11}JUNIT klaseak}{24}{}%
+\contentsline {subsection}{\numberline {5.11.1}AktoreTest klasea}{24}{}%
+\contentsline {subsection}{\numberline {5.11.2}AktoreZerrendaTest klasea}{25}{}%
+\contentsline {subsection}{\numberline {5.11.3}AktoreTaulaTest klasea}{26}{}%
+\contentsline {subsection}{\numberline {5.11.4}FilmTest klasea}{27}{}%
+\contentsline {subsection}{\numberline {5.11.5}FilmZerrendaTest klasea}{28}{}%
+\contentsline {subsection}{\numberline {5.11.6}FilmTaulaTest klasea}{28}{}%
+\contentsline {chapter}{\numberline {6}Konklusioak}{30}{}%
+\contentsline {section}{\numberline {6.1}Saiakerak eta emaitzak}{30}{}%
+\contentsline {section}{\numberline {6.2}ArrayListaren probak}{31}{}%
+\contentsline {section}{\numberline {6.3}Hash taularen probak}{31}{}%
+\contentsline {section}{\numberline {6.4}ArrayList eta Hash taularen konparaketa grafikoa}{31}{}%
+\contentsline {section}{\numberline {6.5}Quick Sort algoritmoaren exekuzio denbora milisegunduetan (ms)}{32}{}%
