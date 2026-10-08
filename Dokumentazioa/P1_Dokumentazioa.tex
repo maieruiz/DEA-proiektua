@@ -59,6 +59,11 @@ Hasieran, \textit{ArrayList}-ak erabili ziren soilik, baina algoritmoa ez zen ha
 			\item \textbf{Aurrebaldintza}: Command-Line Argument-ko argumentuak hartzen ditu parametro gisa, baina ez dira erabiltzen. Eclipsek defektuz sortutako metodo izenburua da.
 			\item \textbf{Postbaldintza}: Ez du ezer itzultzen
 		\end{itemize}
+	\subsection*{Kasu-probak}
+		\begin{itemize}
+			\item Exekuzio arrunta (pelikulen datu base osoarekin)
+			\item Exekuzio murriztua (.txt artxibo gutxiekin)
+		\end{itemize}
 	\subsection*{Deskribapena}
 		Metodo hau nagusia da. Bertan, bi hash taula lortzen dira. Horretaz aparte, Quick Sort algoritmoa bertatik deitzen da eta exekuzio-denborak kontrolatu egiten dira.
 	\subsection*{Kostua}
@@ -69,41 +74,37 @@ Hasieran, \textit{ArrayList}-ak erabili ziren soilik, baina algoritmoa ez zen ha
 			= K_{1} + t_{readFiles} + t_{writeF} + t_{writeAkt} + t_{QuickSort} + t_{writeSorted} =
 		\]
 		\[	
-			= K_{1} + n^{3} + 3n + n\log_{2}(n) \in O(n^{3})
+			= K_{1} + n*m*(p+q) + f + k + k\log_{2}(k) +k + p =
 		\]
-		
-		Beraz, main metodoaren ordena \textbf{kubikoa} da.
-	\subsection*{Implementazioa}
-\begin{lstlisting}[language=Java]
-	public static void main(String[] args) {
-		long start = System.currentTimeMillis();
-		//ALGORITMO NAGUSIA
-		AktoreTaula aktoreZ = AktoreTaula.getAktoreTaula();
-		FilmTaula filmZ = FilmTaula.getFilmTaula();
-		readFiles(filmZ.getLista(), aktoreZ.getLista());
-		//EXEKUZIO DENBORA
-		long end = System.currentTimeMillis();
-		double exTime = (double) ((end - start)/1000);
-		//PRINT-AK
-		System.out.println("execution time: " + exTime + " seconds");
-		System.out.println("AktoreZ  " + aktoreZ.size());
-		System.out.println("FilmZ  " + filmZ.size());
-		//IDAZKETA
-		WriteFile writeFile = new WriteFile();
-		//writeFile.writeFilmakT("filmak.txt", filmZ.getLista());
-		//writeFile.writeAktoreakT("aktoreak.txt", aktoreZ.getLista());
-		//SORT
-		AktoreZerrenda aktoreSorted = QuickSort.quickSortAlgorithm(aktoreZ.getLista());
-		writeFile.writeAktoreakZ("aktoreakSorted.txt", aktoreSorted);
-	}
-\end{lstlisting}
+		\[	
+			= K_{1} + n*m*(p+q) + f + 2k + k\log_{2}(k) + p \in O(n·m·(p + q) + k\log_{2}(k)
+		\]
+		Kostea kalkulatzeko, batazbesteko kasu hartu da.\\
+		Beraz, main metodoaren ordena \textbf{kuasilineala} da.\\
+		Kostea kalkulatzeko, hurrengo aldagaiak erabili dira:
+		\begin{itemize}
+			\item n: Fitxategi kopurua
+			\item m: Fitxategi bakoitzeko lerro kopuru handiena
+			\item k: Aktore taulan dauden aktoreen kopurua
+			\item f: Film taulan dauden film kopurua
+			\item p: Aktore batek duen film kopuru handiena
+			\item q: Film batek duen aktore kopuru handiena
+		\end{itemize}
 
 \section{readFiles metodoa}
 	\subsection*{Espezifikazioa}
 		\begin{itemize}
-			\item \textbf{Aurrebaldintza}: Parametro gisa, aktore guztiak gordeta dauden (edo gordeko diren lekua) taula eta film guztiak gordeta daude (edo gordeko diren lekua) taula jasotzen ditu.
+			\item \textbf{Aurrebaldintza}: Ez du parametrorik jasotzen.
 			\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
 		\end{itemize}
+	\subsection*{Kasu-probak}
+	\begin{itemize}
+		\item Direktorio hutsa (movies-dir karpeta existitzen da, baina ez du artxiborik)
+		\item movies-dir karpeta existitzen da, baina .txt ez diren artxiboak ditu
+		\item movies-dir karpetak .txt bakarra du
+		\item movies-dir karpetak 2 artxibo .txt ditu eta aktore berdina dago bi artxiboetan
+		\item Ez da movies-dir karpeta existitzen
+	\end{itemize}
 	\subsection*{Deskribapena}
 		Metodo honek .txt artxibo guztiak array baten barnean sartzen ditu eta artxiboz artxibo irakurtzen ditu.
 	\subsection*{Kostua}
@@ -111,82 +112,41 @@ Hasieran, \textit{ArrayList}-ak erabili ziren soilik, baina algoritmoa ez zen ha
 			T(n) = t_{has} + t_{listFiles} + t_{for} = K_{1} + n + n(t_{bald} + t_{readFile}) =
 		\]
 		\[
-			= K_{1} + n + n(K_{2} + n^{2}) = K_{1} + n + nK_{2} + n^{3} =
-		\]
-		\[
-			= K_{1} + K_{3}n + n^{3} \in O(n^{3})
+			= K_{1} + n + n(K_{2} + m(p+q)) \in O(n*m*(p+q))
 		\]
 		
-		Beraz, readFiles metodoaren ordena \textbf{kubikoa} da.
-	\subsection*{Implementazioa}
-\begin{lstlisting}[language=Java]
-	private static void readFiles(HashMap<String, Film> filmZ, HashMap<String, Aktore> aktoreZ) {
-		File directory = new File("C:/Users/maier/OneDrive - UPV EHU/2.maila/1.kuatri/datu-egiturak eta algoritmoak/Praktikak/Aktoreak_Filmak/src/packLaboTaula/movies-dir/");
-		File[] files = directory.listFiles(); // Array batean gorde .txt guztiak
-		ReadFile reader = new ReadFile();
-		for(File file : files) {
-			if (file.isFile() && file.getName().endsWith(".txt")) 
-			reader.readFile(file.getAbsolutePath(), file.getName(), filmZ, aktoreZ);
-		}
-	}
-\end{lstlisting}
+		Beraz, readFiles metodoaren ordena \textbf{lineala} da. p eta q txikiak direnez (konstantetzat har daitezke), ordena lineala da $n·m$ lerro kopuruarekiko.\\
+		Kostearen kalkuluan n aldagaia erabili da. Bertan, n-k fitxategi kopuruari egiten dio erreferentzia. p eta q aldagaiak erabili dira baita ere: p aktore batek duen film kopuru handienerako eta q film batek  duen aktore kopuru handienerako. Azkenik, m aldagaia erabiltzen da fitxategi bakoitzeko lerro kopuru handiena adierazteko.
 
 \section{readFile metodoa}
 	\subsection*{Espezifikazioa}
 		\begin{itemize}
-			\item \textbf{Aurrebaldintza}: Artxiboaren "Path"-a, izena eta aktore eta filmen taulak hartzen ditu parametro gisa.
+			\item \textbf{Aurrebaldintza}: Fitxategiaren "path" osoa (String) eta fitxategiaren izena (String, urtea lortzeko) hartzen ditu parametro gisa.
 			\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
 		\end{itemize}
+	\subsection*{Kasu-probak}
+	\begin{itemize}
+		\item Fitxategia ez da existitzen
+		\item Fitxategi hutsa
+		\item Formatu okerra (datuak ez daude \#\#\#\#-ekin banatuta)
+		\item ID eta izena berdinak dira (beraz, ez da gehitu behar)
+		\item Aktore berria eta Film berria
+		\item Aktorea existitzen da jada, baina filma berria da
+		\item Aktore berria, baina filma existitzen da jada
+		\item Lerro errepikatua fitxategian
+	\end{itemize}
 	\subsection*{Deskribapena}
 		Metodo hau Main klaseko readFiles metodotik deitzen da iterazio bakoitzean. Bertan, .txt bakoitzaren irakurketa bera burutzen da. Artxiboa lerroz lerro irakurri egiten da, bakoitzetik beharrezko informazioa lortuz eta dagokion lekuak sailkatuz.
 	\subsection*{Kostua}
 		\[
-			T(n) = t_{has1} + t_{while} + t_{has2} = K_{1} + t_{while} =
+			T(m) = t_{has1} + t_{while} + t_{has2} = K_{1} + t_{while} =
 		\]
 		\[
-			= K_{1} + n(t_{bald} + t_{badagoF} + t_{badagoAkt}) = K_{1} + n(K_{2} + n + n) =
-		\]
-		\[
-			= K_{1} + n(K_{2} + 2n) = K_{1} + K_{2}n + 2n^{2} \in O(n^{2})
+			= K_{1} + m(t_{bald} + t_{badagoF} + t_{badagoAkt}) = K_{1} + m(K_{2} + p + q) \in O(m(p+q))
 		\]
 		
-		Beraz, readFile metodoaren ordena \textbf{koadratikoa} da.
-	\subsection*{Implementazioa}
-\begin{lstlisting}[language=Java]
-public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  HashMap<String, Aktore> aktoreZ) {
-	try {
-		Scanner sarrera = new Scanner(new FileReader(izena));
-		String lerroa;
-		while (sarrera.hasNext()) {
-			lerroa = sarrera.nextLine();
-			String[] datuak = lerroa.split("\\s+###\\s+");
-			int data = extractData(pData);
-			String aktoreKey = datuak[0].concat(datuak[1]);
-			String filmKey = datuak[2].concat(datuak[3]);
-			if (datuak.length == 4) {
-				datuak[0] = extractId(datuak[0]);
-				datuak[2] = extractId(datuak[2]);
-				if (!(datuak[0].equals(datuak[1]) || datuak[2].equals(datuak[3]))){
-					if(!aktoreZ.containsKey(aktoreKey)) {
-						Aktore newA = new Aktore(datuak[0], datuak[1]);
-						aktoreZ.put(aktoreKey, newA);
-					}  
-					if(!filmZ.containsKey(filmKey)) {
-						Film newF = new Film(datuak[2], datuak[3], data);
-						filmZ.put(filmKey, newF);
-					}  
-					aktoreZ.get(aktoreKey).addFilm(filmZ.get(filmKey));
-					filmZ.get(filmKey).addAktore(aktoreZ.get(aktoreKey));
-				}
-			}
-		}
-		sarrera.close();
-	} 
-	catch (IOException e) {
-		e.printStackTrace();
-	}                                 
-}
-\end{lstlisting}
+		Beraz, readFile metodoaren ordena \textbf{lineala} da. p eta q txikiak direnez (konstantetzat har daitezke), ordena lineala da $n·m$ lerro kopuruarekiko.\\
+		Kostearen kalkuluan hurrengo aldagaiak erabili dira: m fitxategiaren lerro kopururako, p aktore batek duen film kopuru handienerako eta q film batek  duen aktore kopuru handienerako.
 
 \section{Quick Sort algoritmoa}
 
@@ -194,114 +154,95 @@ public void readFile(String izena, String pData, HashMap<String, Film> filmZ,  H
 		\subsubsection*{Espezifikazioa}
 			\begin{itemize}
 				\item \textbf{Aurrebaldintza}: Metodoak aktoreen hash taula hartzen du parametro gisa.
-				\item \textbf{Postbaldintza}: Metodoak ArrayList bat itzultzen du. Bertan, taulako aktore guztiak agertzen dira, ordenatuta.
+				\item \textbf{Postbaldintza}: Metodoak AktoreZerrenda bat itzultzen du. Bertan, taulako aktore guztiak agertzen dira, ordenatuta.
 			\end{itemize}
+		\subsubsection*{Kasu-probak}
+		\begin{itemize}
+			\item Hash mapa hutsa
+			\item Hash mapan elementu bakarra
+			\item Hash mapan elementu asko eta desordenatuta
+		\end{itemize}
 		\subsubsection*{Deskribapena}
 			Metodo honek algoritmoaren hasieraketak egiten ditu, hala nola, zerrenda berri bat sortu, algoritmoa burutzen duen metodoari deitu eta zerrenda ordenatua itzuli.
 		\subsubsection*{Kostua}
 			\[
-				T(n) = t_{has} + t_{for} + t_{quickSort} + t_{ret} = K_{1} + t_{for} + t_{quickSort} =
+				T(k) = t_{has} + t_{for} + t_{quickSort} + t_{ret} = K_{1} + t_{for} + t_{quickSort} =
 			\]
 			\[
-				= K_{1} + nK_{2} + t_{div} * \log_{2}(n) = K_{1} + nK_{2} + n\log_{2}(n) \in O(n\log_{2}(n))
+				= K_{1} + kK_{2} + t_{div} * \log_{2}(k) = K_{1} + kK_{2} + k\log_{2}(k) \in O(k\log_{2}(k))
 			\]
 			
-			Kasu orokorra hartzen bada kontuan (txarrena baino), Quick Sort algoritmoaren ordena \textbf{kuasilineala} da.
-		\subsubsection*{Implementazioa}
-\begin{lstlisting}[language=Java]
-	public static AktoreZerrenda quickSortAlgorithm(HashMap<String, Aktore> AktoreT) {
-		AktoreZerrenda sortedList = new AktoreZerrenda();
-		for (String key: AktoreT.keySet()) {
-			sortedList.addAktorea(AktoreT.get(key));
-		}
-		quickSort(sortedList, 0, sortedList.size()-1);
-		return sortedList;
-	}
-\end{lstlisting}
+			Kasu orokorra hartzen bada kontuan (txarrena baino), Quick Sort algoritmoaren ordena \textbf{kuasilineala} da.\\
+			Kasu txarrenean (pibotea txikiena edo handiena), ordena \textbf{koadratikoa} da, $O(k^{2})$.\\
+			Kostearen kalkuluan k aldagaia erabili da. Bertan, k aktore taulan dauden aktore kopuruari egiten dio erreferentzia.
 	
 	\subsection{quickSort metodoa}
 		\subsubsection*{Espezifikazioa}
 			\begin{itemize}
-				\item \textbf{Aurrebaldintza}: Metodoak aktore-taula eta bi zenbaki oso jasotzen ditu (hasierako eta bukaerako posizioak).
+				\item \textbf{Aurrebaldintza}: Metodoak aktore-zerrenda (ordenatze prozesuaren zehar emaitzak jartzen diren zerrenda) eta bi zenbaki oso jasotzen ditu (hasierako eta bukaerako posizioak).
 				\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
 			\end{itemize}
+		\subsubsection*{Kasu-probak}
+		\begin{itemize}
+			\item Zerrenda hutsa
+			\item Elementu bakarreko zerrenda
+			\item Zerrenda bi elementu ordenatuta ditu
+			\item Zerrendak bi elementu desordenatuta ditu
+			\item Zerrendak hainbat elementu ordenatuta ditu
+			\item Zerrendak hainbat elementu desordenatuta ditu
+			\item Zerrendak hainbat elementu ditu alderantziz ordenatuta
+			\item Zerrendak errepikatzen diren elementuak ditu
+		\end{itemize}
 		\subsubsection*{Deskribapena}
 			Metodo honek quick sort algoritmoa bera burutzen du, dei errekurtsiboekin.
 		\subsubsection*{Kostua}
 			\[
-				T(n) = t_{div} + \log_{2}(n) = n\log_{2}(n) \in O(n\log_{2}(n))
+				T(s) = 2·T(s/2) + s \in O(s\log_{2}(s))
 			\]
 			
-			Beraz, Quick Sort algoritmoaren ordena \textbf{kuasilineala} da.
-		\subsubsection*{Implementazioa}
-\begin{lstlisting}[language=Java]
-	private static void quickSort(AktoreZerrenda aktoreZ, int h, int b) {
-		if (b-h > 0) {
-			int index = divisor(aktoreZ, h, b);
-			quickSort(aktoreZ, h, index-1);
-			quickSort(aktoreZ, index+1, b);
-		}
-	}
-\end{lstlisting}
+			Beraz, Quick Sort algoritmoaren ordena \textbf{kuasilineala} da.\\
+			Kostearen kalkuluan s aldagaia erabili da. Bertan, s zatitu behar den azpizerrendaren tamaina da ($s = b - h + 1$).
 	
 	\subsection{divisor metodoa}
 		\subsubsection*{Espezifikazioa}
 			\begin{itemize}
-				\item \textbf{Aurrebaldintza}: Metodoak aktore-taula eta bi zenbaki oso jasotzen ditu (hasierako eta bukaerako posizioak).
-				\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
+				\item \textbf{Aurrebaldintza}: Metodoak aktore-zerrenda (ordenatze prozesuaren zehar emaitzak jartzen diren zerrenda) eta bi zenbaki oso jasotzen ditu (hasierako eta bukaerako posizioak).
+				\item \textbf{Postbaldintza}: "right" izeneko aldagaia itzultzen du indize gisa erabiltzeko.
 			\end{itemize}
+		\subsubsection*{Kasu-probak}
+		\begin{itemize}
+			\item Elememtu bakarra (h=b)
+			\item Bi elementu ordenatuta
+			\item Bi elementu desordenatuta
+			\item Pibotea txikiena da (zerrenda jada ordenatua)
+			\item Pibotea handiena da (zerrenda alderantziz ordenatua)
+			\item Pibotea erdian dago
+		\end{itemize}
 		\subsubsection*{Deskribapena}
 			Metodo honek Quick Sort algoritmoak behin eta berriz egiten duen zatiketa burutzen du.
 		\subsubsection*{Kostua}
 			\[
-				T(n) = t_{has} + t_{while} + t_{ret}= K_{1} + t_{while} = K_{1} + nK_{2} \in O(n)
+				T(s) = t_{has} + t_{while} + t_{ret}= K_{1} + t_{while} = K_{1} + sK_{2} \in O(s)
 			\]
 			
-			Beraz, divisor metodoaren ordena \textbf{lineala} da.
-		\subsubsection*{Implementazioa}
-\begin{lstlisting}[language=Java]
-	private static int divisor(AktoreZerrenda aktoreZ, int h, int b) {
-		Aktore tempAktore = aktoreZ.get(h);
-		String tempIzena = aktoreZ.getIzena(h);
-		int left = h;
-		int right = b;
-		while (left < right) {
-			while (aktoreZ.getIzena(left).compareTo(tempIzena) <= 0 && left < right){
-				left++;
-			}
-			while (aktoreZ.getIzena(right).compareTo(tempIzena) > 0 && left < right){
-				right--;
-			}
-			if (left < right)
-				swap(aktoreZ, left, right);
-		}
-		if (aktoreZ.getIzena(right).compareTo(tempIzena) > 0)
-			right--;
-		aktoreZ.set(h, aktoreZ.get(right));
-		aktoreZ.set(right, tempAktore);
-		return right;
-	}
-\end{lstlisting}
+			Beraz, divisor metodoaren ordena \textbf{lineala} da.\\
+			Kostearen kalkuluan s aldagaia erabili da. Bertan, s zatitu behar den azpizerrendaren tamaina da ($s = b - h + 1$).
 	
 	\subsection{swap metodoa}
 		\subsubsection*{Espezifikazioa}
 			\begin{itemize}
-				\item \textbf{Aurrebaldintza}: Metodoak aktore-taula eta bi zenbaki oso jasotzen ditu (trukatu nahi diren bi elementuen posizioak).
+				\item \textbf{Aurrebaldintza}: Metodoak aktore-zerrenda (ordenatze prozesuaren zehar emaitzak jartzen diren zerrenda) eta bi zenbaki oso jasotzen ditu (trukatu nahi diren bi elementuen posizioak).
 				\item \textbf{Postbaldintza}: Metodoak ez du ezer itzultzen.
 			\end{itemize}
+		\subsubsection*{Kasu-probak}
+		\begin{itemize}
+			\item Bi elementu ordenatu lekuz aldatu
+		\end{itemize}
+		Ez dago kasu-proba gehiagorik. Izan ere, metodoari deitu baino lehen aztertzen da lehenengo elementua bigarrena baino txikiagoa dela. Bestela, ez da metodoa deitzen, beraz, hori da aukera bakarra.
 		\subsubsection*{Deskribapena}
 			Metodo honek bi balioren aldaketa burutzen du, aldagai temporal baten laguntzarekin.
 		\subsubsection*{Kostua}
-			Kostua konstantea da O(1) edozein posizioko edozein elementurekin denbora berdina behar izango baitu.
-		\subsubsection*{Implementazioa}
-\begin{lstlisting}[language=Java]
-	private static void swap(AktoreZerrenda aktoreZ, int one, int two) {
-		Aktore tempAktore = aktoreZ.get(one);
-		aktoreZ.set(one, aktoreZ.get(two));
-		aktoreZ.set(two, tempAktore);
-	}
-\end{lstlisting}
-
+			Kostua \textbf{konstantea} da O(1) edozein posizioko edozein elementurekin denbora berdina behar izango baitu.
 
 \chapter{Kodigoa}
 \section{Main klasea}
